@@ -34,7 +34,7 @@ jobs:
       
       - name: Install dependencies
         run: |
-          cd backend
+          cd ./app/backend
           pwd
           ls
           ls ./backend_env
