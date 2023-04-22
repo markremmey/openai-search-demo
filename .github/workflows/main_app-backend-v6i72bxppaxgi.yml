@@ -10,6 +10,10 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: app-backend-v6i72bxppaxgi # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: './app/backend/'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,11 +28,11 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          python -m venv venv
-          source venv/bin/activate
+          python -m venv backend/backend_env
+          source ../scripts/venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r backend/requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
