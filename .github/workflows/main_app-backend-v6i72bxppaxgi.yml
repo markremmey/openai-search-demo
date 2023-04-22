@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
@@ -55,9 +55,14 @@ jobs:
           path: .
           
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
+        uses: azure/login@v1
         id: deploy-to-webapp
         with:
-          app-name: 'app-backend-v6i72bxppaxgi'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C607581F5E8E44AF94BA46FC4F3D34D4 }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+        #uses: azure/webapps-deploy@v2
+        #id: deploy-to-webapp
+        #with:
+        #  app-name: 'app-backend-v6i72bxppaxgi'
+        #  slot-name: 'Production'
+        #  publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C607581F5E8E44AF94BA46FC4F3D34D4 }} 
+
