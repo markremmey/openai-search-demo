@@ -29,10 +29,12 @@ jobs:
       - name: Create and start virtual environment
         run: |
           python -m venv backend/backend_env
-          source ../scripts/venv/bin/activate
+          # source ../scripts/venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r backend/requirements.txt
+        run: |
+          cd backend
+          ./backend_env/bin/python -m pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
