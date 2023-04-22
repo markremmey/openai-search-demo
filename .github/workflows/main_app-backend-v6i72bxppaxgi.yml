@@ -12,6 +12,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: app-backend-v6i72bxppaxgi # set this to your application's name
+  NODE_VERSION: 16.0
   # AZURE_WEBAPP_PACKAGE_PATH: './app/backend/'
 
 jobs:
@@ -39,6 +40,17 @@ jobs:
           ls
           ls ./backend_env
           ./backend_env/bin/python -m pip install -r requirements.txt
+      
+      - name: Setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Build frontend
+        run: |
+          cd ./app/frontend/
+          npm install
+          npm run build
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
@@ -64,15 +76,15 @@ jobs:
           name: python-app
           path: .
           
-      - name: 'Deploy to Azure Web App'
+      - name: Login to Azure
         uses: azure/login@v1
-        id: deploy-to-webapp
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-        #uses: azure/webapps-deploy@v2
-        #id: deploy-to-webapp
-        #with:
-        #  app-name: 'app-backend-v6i72bxppaxgi'
-        #  slot-name: 'Production'
-        #  publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C607581F5E8E44AF94BA46FC4F3D34D4 }} 
-
+      
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:
+          app-name: 'app-backend-v6i72bxppaxgi'
+          #slot-name: 'Production'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
