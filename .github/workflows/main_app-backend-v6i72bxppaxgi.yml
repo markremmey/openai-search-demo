@@ -12,7 +12,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: app-backend-v6i72bxppaxgi # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './app/backend/'
+  # AZURE_WEBAPP_PACKAGE_PATH: './app/backend/'
 
 jobs:
   build:
@@ -28,6 +28,7 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
+          cd ./app
           python -m venv backend/backend_env
           # source ../scripts/venv/bin/activate
       
