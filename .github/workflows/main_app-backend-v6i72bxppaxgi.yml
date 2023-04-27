@@ -81,6 +81,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
+      - name: 'Run python backend'
+        run: |
+          cd ./app/backend/
+          ./backend_env/bin/python ./app.py
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
@@ -89,7 +94,4 @@ jobs:
           #slot-name: 'Production'
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           
-      - name: 'Run python backend'
-        run: |
-          cd ./app/backend/
-          ./backend_env/bin/python ./app.py
+
