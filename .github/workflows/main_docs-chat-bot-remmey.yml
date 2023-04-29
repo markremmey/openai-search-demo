@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: app-backend-v6i72bxppaxgi # set this to your application's name
+  AZURE_WEBAPP_NAME: docs-chat-bot-remmey # set this to your application's name
   NODE_VERSION: 16.0
   AZURE_WEBAPP_PACKAGE_PATH: './app/backend/'
 
