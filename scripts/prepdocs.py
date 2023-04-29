@@ -14,6 +14,10 @@ from azure.search.documents.indexes.models import *
 from azure.search.documents import SearchClient
 from azure.ai.formrecognizer import DocumentAnalysisClient
 
+print('Running azd login...')
+os.system('azd login')
+
+
 MAX_SECTION_LENGTH = 1000
 SENTENCE_SEARCH_LIMIT = 100
 SECTION_OVERLAP = 100
@@ -234,6 +238,10 @@ def create_search_index():
     if args.verbose: print(f"Ensuring search index {args.index} exists")
     index_client = SearchIndexClient(endpoint=f"https://{args.searchservice}.search.windows.net/",
                                      credential=search_creds)
+    
+    print(f"Index argument: {args.index}\nIndex list:")
+    print(index_client.list_index_names())
+    
     if args.index not in index_client.list_index_names():
         index = SearchIndex(
             name=args.index,
