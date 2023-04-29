@@ -51,7 +51,13 @@ jobs:
           cd ./app/frontend/
           npm install
           npm run build
-
+          
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v1
+        with:
+          azcliversion: latest
+          checkinstall: true
+      
       - name: Login to Azure
         uses: azure/login@v1
         with:
