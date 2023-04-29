@@ -4,11 +4,11 @@
 
 name: Build and deploy Python app to Azure Web App - app-backend-v6i72bxppaxgi
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 
 env:
   AZURE_WEBAPP_NAME: app-backend-v6i72bxppaxgi # set this to your application's name
