@@ -10,8 +10,8 @@ from text import nonewlines
 class RetrieveThenReadApproach(Approach):
 
     template = \
-"You are an intelligent assistant using the provided Azure documentation to answer questions regardign Azure Open AI service" + \
-"You can assume that the user's questions are always related to a 2021 Honda CR-V. " + \
+"You are an intelligent assistant using the provided Azure documentation to answer questions regarding Azure services" + \
+"You can assume that the user's questions are always related to Azure services " + \
 "Use 'you' to refer to the individual asking the questions even if they ask with 'I'. " + \
 "Answer the following question using only the data provided in the sources below. " + \
 "For tabular information return it as an html table. Do not return markdown format. "  + \
@@ -20,14 +20,15 @@ class RetrieveThenReadApproach(Approach):
 """
 
 ###
-Question: 'What are some safety precaution regarding the airbag system?'
+Question: 'How do I configure managed Identity?
+'
 
 Sources:
-Car_manual-123.pdf: Do not attach or place objects on the front airbag covers. 
-info4.pdf: Keep your hands and arms away from the airbag covers
+azure-openai-145.pdf: Authorize access to managed identities OpenAI supports Azure Active Directory (Azure AD) authentication with managed identities for Azure resources. Managed identities for Azure resources can authorize access to Cognitive Services resources using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Enable managed identities on a VM Before you can use managed identities for Azure resources to authorize access to Cognitive Services resources from your VM, you must enable managed identities for Azure resources on the VM. To learn how to enable managed identities for Azure Resources, see: Azure portal Azure CLI ..... Azure PowerShell Azure Resource Manager template Azure Resource Manager client libraries For more information about managed identities, see Managed identities for Azure resources. 
+info4.pdf: Navigate to your Azure OpenAI resource and click on IAM
 
 Answer:
-If traffic information is missing, you should see if signal strength is low or check that traffic icons are turned on. [Car_manual-123.pdf][info4.pdf].
+To configure managed identities for your Azure resources, you can follow the instructions provided in the Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager template, or Azure Resource Manager client libraries.. [azure-openai-145.pdf][info4.pdf].
 
 ###
 Question: '{q}'?

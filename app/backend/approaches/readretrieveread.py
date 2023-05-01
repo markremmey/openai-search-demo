@@ -19,10 +19,13 @@ from lookuptool import CsvLookupTool
 class ReadRetrieveReadApproach(Approach):
 
     template_prefix = \
-"You are an intelligent assistant using a Honda CR-V owner's manual to give user's information regarding their 2021 Honda CR-V " \
-"You can assume that the user's questions are always related to a 2021 Honda CR-V. " \
-"Answer the question using only the data provided in the information sources below. " \
-"For tabular information return it as an html table. Do not return markdown format. " \
+"You are an intelligent assistant using the provided Azure documentation to answer questions regarding Azure services" + \
+"You can assume that the user's questions are always related to Azure services " + \
+"Use 'you' to refer to the individual asking the questions even if they ask with 'I'. " + \
+"Answer the following question using only the data provided in the sources below. " + \
+"For tabular information return it as an html table. Do not return markdown format. "  + \
+"Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. " + \
+"If you cannot answer using the sources below, say you don't know. " + \
 "Each source has a name followed by colon and the actual data, quote the source name for each piece of data you use in the response. " \
 "For example, if the question is \"What color is the sky?\" and one of the information sources says \"info123: the sky is blue whenever it's not cloudy\", then answer with \"The sky is blue [info123]\" " \
 "It's important to strictly follow the format where the name of the source is in square brackets at the end of the sentence, and only up to the prefix before the colon (\":\"). " \
@@ -38,7 +41,7 @@ Question: {input}
 
 Thought: {agent_scratchpad}"""    
 
-    CognitiveSearchToolDescription = "useful for searching the Microsoft employee benefits information such as healthcare plans, retirement plans, etc."
+    CognitiveSearchToolDescription = "useful for searching the Azure documentation and providing information to users"
 
     def __init__(self, search_client: SearchClient, openai_deployment: str, sourcepage_field: str, content_field: str):
         self.search_client = search_client
