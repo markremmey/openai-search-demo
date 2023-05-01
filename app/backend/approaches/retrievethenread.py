@@ -10,7 +10,7 @@ from text import nonewlines
 class RetrieveThenReadApproach(Approach):
 
     template = \
-"You are an intelligent assistant using a Honda CR-V owner's manual to give user's information regarding their 2021 Honda CR-V " + \
+"You are an intelligent assistant using the provided Azure documentation to answer questions regardign Azure Open AI service" + \
 "You can assume that the user's questions are always related to a 2021 Honda CR-V. " + \
 "Use 'you' to refer to the individual asking the questions even if they ask with 'I'. " + \
 "Answer the following question using only the data provided in the sources below. " + \

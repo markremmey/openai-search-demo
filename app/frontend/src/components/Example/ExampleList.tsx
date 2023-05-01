@@ -9,11 +9,17 @@ export type ExampleModel = {
 
 const EXAMPLES: ExampleModel[] = [
     {
-        text: "How do I handle a flat tire?",
-        value: "How do I handle a flat tire?"
+        text: "Tell me about Azure OpenAI service",
+        value: "Tell me about Azure OpenAI service"
     },
-    { text: "List the warranty coverages associated with my vehicle", value: "List the warranty coverages associated with my vehicle" },
-    { text: "How do I check the fuel level on my vehicle?", value: "How do I check the fuel level on my vehicle?" }
+    {
+        text: "How do I generate embeddings using Azure OpenAI?",
+        value: "How do I generate embeddings using Azure OpenAI?"
+    },
+    {
+        text: "How do I configure managed Identity?",
+        value: "How do I configure managed Identity?"
+    }
 ];
 
 interface Props {

@@ -15,6 +15,7 @@ from azure.search.documents import SearchClient
 from azure.ai.formrecognizer import DocumentAnalysisClient
 
 print('Running azd login...')
+
 os.system('azd login')
 
 
